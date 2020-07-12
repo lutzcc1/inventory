@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\ItemRepository;
+use App\Form\ItemFormType;
 
 /**
      * @Route("/item", name="item.")
@@ -19,11 +20,13 @@ class ItemController extends AbstractController
      */
     public function index(ItemRepository $itemRepository)
     {
-
+        $item = new Item();
         $items = $itemRepository->findAll();
+        $form = $this->createForm(ItemFormType::class, $item);
 
         return $this->render('item/index.html.twig', [
-            'items' => $items
+            'items' => $items,
+            'form' => $form->createView()
         ]);
     }
 
@@ -34,16 +37,11 @@ class ItemController extends AbstractController
     public function create(Request $request) {
         $item = new Item();
 
-        $item->setQuantity(5);
-        $item->setPrice(12);
-        $item->setName('Primer item');
-        $item->setDescription('Im testing the DB...');
-
         $em = $this->getDoctrine()->getManager();
         $em->persist($item);
         $em->flush();
 
-        return new Response('Item was created');
+        return $this->redirect($this->generateUrl('item.index'));
     }
 
     /**
