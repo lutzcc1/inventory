@@ -33,5 +33,5 @@
     </tbody>
   </table>
 
-  {{ form(form) }}
+  {{ form(form, {'action': path('item.create'), 'method': 'POST'}) }}
 {% endblock %}

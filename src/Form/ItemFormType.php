@@ -6,6 +6,7 @@ use App\Entity\Item;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ItemFormType extends AbstractType
 {
@@ -16,6 +17,11 @@ class ItemFormType extends AbstractType
             ->add('quantity')
             ->add('price')
             ->add('description')
+            ->add('agregar', SubmitType::class, [
+              'attr' => [
+                'class' => 'btn btn-dark'
+              ]
+            ])
         ;
     }
 

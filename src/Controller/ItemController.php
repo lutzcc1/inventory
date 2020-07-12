@@ -24,6 +24,10 @@ class ItemController extends AbstractController
         $items = $itemRepository->findAll();
         $form = $this->createForm(ItemFormType::class, $item);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+          dump($item);
+        }
+
         return $this->render('item/index.html.twig', [
             'items' => $items,
             'form' => $form->createView()
@@ -36,6 +40,9 @@ class ItemController extends AbstractController
      */
     public function create(Request $request) {
         $item = new Item();
+
+        $form = $this->createForm(ItemFormType::class, $item);
+        $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($item);
