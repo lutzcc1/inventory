@@ -22,10 +22,8 @@ class ItemController extends AbstractController
 
         $items = $itemRepository->findAll();
 
-        dump($items);
-
         return $this->render('item/index.html.twig', [
-            'controller_name' => 'ItemController',
+            'items' => $items
         ]);
     }
 
@@ -46,5 +44,18 @@ class ItemController extends AbstractController
         $em->flush();
 
         return new Response('Item was created');
+    }
+
+    /**
+    *@Route("/delete/{id}", name="delete")
+    */
+    public function delete(Item $item) {
+      $em = $this->getDoctrine()->getManager();
+      $em->remove($item);
+      $em->flush();
+
+      $this->addFlash("success", "Item deleted");
+
+      return $this->redirect($this->generateUrl('item.index'));
     }
 }

@@ -1,20 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ItemController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+  {% for message in app.flashes('success') %}
+    <div class="alert alert-danger">
+      {{ message }}
+    </div>
+  {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/lutzcc1/lampstack-7.4.7-0/apache2/htdocs/inventory/src/Controller/ItemController.php'|file_link(0) }}">src/Controller/ItemController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/lutzcc1/lampstack-7.4.7-0/apache2/htdocs/inventory/templates/item/index.html.twig'|file_link(0) }}">templates/item/index.html.twig</a></code></li>
-    </ul>
-</div>
+  <h2>The list</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td><a href="{{ path('item.delete', {id: item.id}) }}">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
