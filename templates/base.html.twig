@@ -3,11 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Inventario{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+          {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+        <nav class="my-navbar navbar navbar-light bg-white">
+          <span id="header-text">Inventario TRANSPARENTA</span>
+        </nav>
         <div class="container">
           {% block body %}{% endblock %}
         </div>
