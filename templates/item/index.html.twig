@@ -8,6 +8,7 @@
     <i class="fas fa-plus-circle"></i> producto
   </button>
 
+  <!-- table -->
   <table class="inventory-table table table-striped table-dark">
     <thead>
       <tr class="thead-light">
@@ -21,59 +22,60 @@
     </thead>
     <tbody>
       {% for item in items %}
-      <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.description }}</td>
-        <td>${{ item.price }}</td>
-        <td>{{ item.quantity }}</td>
-        <td><a class="trash-btn" href="{{ path('item.delete', {id: item.id}) }}"><i class="fas fa-trash"></i></a></td>
-    {% endfor %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>${{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td><a class="trash-btn" href="{{ path('item.delete', {id: item.id}) }}"><i class="fas fa-trash"></i></a></td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 
-<!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content grey-modal">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Producto nuevo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        {{ form_start(form, {'action': path('item.create'), 'method': 'POST'}) }}
-          <div class="row">
-            <div class="col">
-              {{ form_label(form.name, "Nombre") }}
-              {{ form_widget(form.name) }}
-              <br>
+  <!-- modal -->
+  <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content grey-modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Producto nuevo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ form_start(form, {'action': path('item.create'), 'method': 'POST'}) }}
+            <div class="row">
+              <div class="col">
+                {{ form_label(form.name, "Nombre") }}
+                {{ form_widget(form.name) }}
+                <br>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              {{ form_label(form.description, "Descripción") }}
-              {{ form_widget(form.description) }}
-              <br>
+            <div class="row">
+              <div class="col">
+                {{ form_label(form.description, "Descripción") }}
+                {{ form_widget(form.description) }}
+                <br>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              {{ form_label(form.price, "Precio (MXN)") }}
-              {{ form_widget(form.price) }}
-              <br>
+            <div class="row">
+              <div class="col">
+                {{ form_label(form.price, "Precio (MXN)") }}
+                {{ form_widget(form.price) }}
+                <br>
+              </div>
+              <div class="col">
+                {{ form_label(form.quantity, "En existencia") }}
+                {{ form_widget(form.quantity) }}
+                <br>
+              </div>
             </div>
-            <div class="col">
-              {{ form_label(form.quantity, "En existencia") }}
-              {{ form_widget(form.quantity) }}
-              <br>
-            </div>
-          </div>
-        {{ form_end(form) }}
+          {{ form_end(form) }}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 {% endblock %}

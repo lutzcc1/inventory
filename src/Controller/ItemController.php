@@ -6,7 +6,6 @@ use App\Entity\Item;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
 use App\Form\ItemFormType;
 
 /**
@@ -34,10 +33,10 @@ class ItemController extends AbstractController
     *@Route("/delete/{id}", name="delete")
     */
     public function delete(Item $item) {
-      $em = $this->getDoctrine()->getManager();
-      $em->remove($item);
-      $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($item);
+        $em->flush();
 
-      return $this->redirect($this->generateUrl('home'));
+        return $this->redirect($this->generateUrl('home'));
     }
 }
