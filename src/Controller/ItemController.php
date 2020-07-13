@@ -59,8 +59,6 @@ class ItemController extends AbstractController
       $em->remove($item);
       $em->flush();
 
-      $this->addFlash("success", "Item deleted");
-
       return $this->redirect($this->generateUrl('item.index'));
     }
 }
