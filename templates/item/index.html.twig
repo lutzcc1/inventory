@@ -14,14 +14,15 @@
     Launch demo modal
   </button>
 
-  <table class="table table-striped">
+  <table class="inventory-table table table-striped table-dark">
     <thead>
       <tr>
         <td>ID</td>
         <td>Nombre</td>
-        <td>Descripcion</td>
+        <td>Descripción</td>
         <td>Precio</td>
         <td>Cantidad</td>
+        <td></td>
       </tr>
     </thead>
     <tbody>
@@ -32,8 +33,7 @@
         <td>{{ item.description }}</td>
         <td>{{ item.price }}</td>
         <td>{{ item.quantity }}</td>
-        <td><a href="{{ path('item.delete', {id: item.id}) }}">Delete</a></td>
-      </tr>
+        <td><a class="trash-btn" href="{{ path('item.delete', {id: item.id}) }}"><i class="fas fa-trash"></i></a></td>
     {% endfor %}
     </tbody>
   </table>

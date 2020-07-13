@@ -1,8 +1,19 @@
 @import url(//db.onlinewebfonts.com/c/488adf84f184eb603da807be9372e2c6?family=AnnonceW01-Regular);
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
 body {
   background: linear-gradient(#f9f9f9, #ffffff);
   min-height: 100vh;
+}
+
+.inventory-table {
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+table tr:first-child td{
+    border-top: none;
 }
 
 .my-navbar {
@@ -15,4 +26,13 @@ body {
   font-family: "AnnonceW01-Regular";
   font-size: 24px;
   color: #425053;
+}
+
+.trash-btn {
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.trash-btn:hover {
+  color: #ff5b5b;
 }
