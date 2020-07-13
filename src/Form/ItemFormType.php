@@ -19,7 +19,7 @@ class ItemFormType extends AbstractType
             ->add('description')
             ->add('agregar', SubmitType::class, [
               'attr' => [
-                'class' => 'btn btn-dark'
+                'class' => 'btn btn-dark float-right'
               ]
             ])
         ;

@@ -49,7 +49,34 @@
         </button>
       </div>
       <div class="modal-body">
-        {{ form(form, {'action': path('item.create'), 'method': 'POST'}) }}
+        {{ form_start(form, {'action': path('item.create'), 'method': 'POST'}) }}
+          <div class="row">
+            <div class="col">
+              {{ form_label(form.name, "Nombre") }}
+              {{ form_widget(form.name) }}
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              {{ form_label(form.description, "Descripción") }}
+              {{ form_widget(form.description) }}
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              {{ form_label(form.price, "Precio (MXN)") }}
+              {{ form_widget(form.price) }}
+              <br>
+            </div>
+            <div class="col">
+              {{ form_label(form.quantity, "En existencia") }}
+              {{ form_widget(form.quantity) }}
+              <br>
+            </div>
+          </div>
+        {{ form_end(form) }}
       </div>
     </div>
   </div>
