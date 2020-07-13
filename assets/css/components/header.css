@@ -1,0 +1,11 @@
+.my-navbar {
+  height: 80px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 30px rgba(0,0,0,0.1);
+}
+
+.my-navbar > #header-text {
+  font-family: "AnnonceW01-Regular";
+  font-size: 24px;
+  color: #425053;
+}

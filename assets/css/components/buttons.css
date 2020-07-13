@@ -1,0 +1,8 @@
+.trash-btn {
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.trash-btn:hover {
+  color: #ff5b5b;
+}
