@@ -1,0 +1,14 @@
+thead {
+  background: #212121;
+}
+
+table tr:first-child td{
+    border-top: none;
+}
+
+.inventory-table {
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+  border-radius: .25rem;
+  margin-top: 10px;
+  overflow: hidden;
+}

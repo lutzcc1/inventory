@@ -2,6 +2,9 @@
 @import url(//db.onlinewebfonts.com/c/488adf84f184eb603da807be9372e2c6?family=AnnonceW01-Regular);
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 @import url("components/footer.css");
+@import url("components/table.css");
+@import url("components/header.css");
+@import url("components/buttons.css");
 
 body {
   background: linear-gradient(#f9f9f9, #ffffff);
@@ -12,37 +15,6 @@ body {
 
 h1 {
   font-family: 'Montserrat', sans-serif;
-}
-
-.inventory-table {
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-  border-radius: .25rem;
-  margin-top: 10px;
-}
-
-table tr:first-child td{
-    border-top: none;
-}
-
-.my-navbar {
-  height: 80px;
-  margin-bottom: 16px;
-  box-shadow: 0px 4px 30px rgba(0,0,0,0.1);
-}
-
-.my-navbar > #header-text {
-  font-family: "AnnonceW01-Regular";
-  font-size: 24px;
-  color: #425053;
-}
-
-.trash-btn {
-  color: white;
-  transition-duration: 0.3s;
-}
-
-.trash-btn:hover {
-  color: #ff5b5b;
 }
 
 .grey-modal {
