@@ -41,3 +41,7 @@ table tr:first-child td{
 .trash-btn:hover {
   color: #ff5b5b;
 }
+
+.grey-modal {
+  background: #f9f9f9;
+}
