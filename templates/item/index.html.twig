@@ -25,7 +25,7 @@
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.description }}</td>
-        <td>{{ item.price }}</td>
+        <td>${{ item.price }}</td>
         <td>{{ item.quantity }}</td>
         <td><a class="trash-btn" href="{{ path('item.delete', {id: item.id}) }}"><i class="fas fa-trash"></i></a></td>
     {% endfor %}
